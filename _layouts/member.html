@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="member">
+  <h1>{{ page.name }}</h1>
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <h3>作品列表</h3>
+  <ul>
+    {% assign poems = site.posts | where:"author", page.name %}
+    {% for post in poems %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</article>

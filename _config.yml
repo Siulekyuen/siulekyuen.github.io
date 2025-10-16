@@ -1,0 +1,36 @@
+title: 小瀝源野草詩社
+description: 反建制、奢侈沉穩的中文詩社網站
+baseurl: ""
+url: "https://yourusername.github.io"
+
+markdown: kramdown
+permalink: /:categories/:title/
+
+collections:
+  members:
+    output: true
+    permalink: /members/:name/
+  events:
+    output: true
+    permalink: /events/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "members"
+    values:
+      layout: "member"
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "event"
+
+plugins:
+  - jekyll-paginate
+paginate: 5

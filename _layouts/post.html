@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<article class="post">
+  <h1>{{ page.title }}</h1>
+  <p class="meta">作者: 
+    {% if site.members | where:"name", page.author | size > 0 %}
+      <a href="{{ site.members | where:"name", page.author | first.url }}">{{ page.author }}</a>
+    {% else %}
+      {{ page.author }}
+    {% endif %}
+    | 發布日期: {{ page.date | date: "%Y-%m-%d" }}
+  </p>
+
+  <div class="content">
+    {{ content }}
+  </div>
+
+  <h3>推薦文章</h3>
+  <ul>
+    {% assign related = site.posts | where_exp:"post","post.author == page.author" %}
+    {% for post in related limit:3 %}
+      {% if post.url != page.url %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</article>

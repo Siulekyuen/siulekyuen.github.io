@@ -1,18 +1,14 @@
 ---
 layout: default
+title: 成員列表
 ---
-<article class="member">
-  <h1>{{ page.name }}</h1>
+<h1>成員列表</h1>
 
-  <div class="content">
-    {{ content }}
-  </div>
-
-  <h3>作品列表</h3>
-  <ul>
-    {% assign poems = site.posts | where:"author", page.name %}
-    {% for post in poems %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</article>
+<div class="card-grid">
+  {% assign sorted_members = site.members | sort: "name" %}
+  {% for member in sorted_members %}
+    <div class="card">
+      <a href="{{ member.url }}">{{ member.name }}</a>
+    </div>
+  {% endfor %}
+</div>

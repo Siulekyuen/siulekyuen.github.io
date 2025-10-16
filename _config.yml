@@ -1,7 +1,7 @@
 title: 小瀝源野草詩社
 description: 立足小瀝源的中文詩社
 baseurl: ""
-url: "https://yourusername.github.io"
+url: "https://siulekyuen.github.io"
 
 markdown: kramdown
 permalink: /:categories/:title/
